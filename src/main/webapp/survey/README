@@ -1,0 +1,5 @@
+README
+A small web application to present and fill surveys. Uses WebStorage to save its data.
+
+AUTHOR
+Ismael Mejia <iemejia@gmail.com>

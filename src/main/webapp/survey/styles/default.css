@@ -1,0 +1,181 @@
+body {
+    font-family: "Lucida Grande", Verdana;
+    font-size: 13px;
+    color: #7E7E7E;
+}
+
+h1 {
+    background-color: #d5d5d5;
+    color: black;
+    -webkit-border-radius: 0.75em;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d9d9d9), to(#ababab));
+    -webkit-box-shadow: 0 0.15em 0.17em rgba(0, 0, 0, 0.5);
+    display: block;
+    padding: 0.4em;
+    padding-left: 1em;
+    padding-bottom: 0.6em;
+    margin-top: 30px;
+    margin-bottom: 0.5em;
+    position: relative;
+
+    letter-spacing: -0.075em;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+    padding: 2px;
+}
+
+//selected
+.checkbox, .radio {
+  width: 19px;
+  height: 25px;
+  padding: 0 5px 0 0;
+//  background: url(checkbox.gif) no-repeat;
+  background: black;
+  display: block;
+  clear: left;
+  float: left;
+}
+
+/*
+.radio {
+	font-weight: bold;
+	color: white;
+	background-color: #303030;
+	background: rgba(25, 25, 25, 0.35);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(25, 25, 25, 0.25)), to(rgba(25, 25, 25, 0.45)));
+}
+*/
+
+a:hover {
+	text-decoration: underline;
+/*
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 0, 0.1)), to(rgba(245, 245, 245, 0.0))), -webkit-gradient(radial, 50% 0%, 10, 50% 50%, 100, from(rgba(255, 255, 255, 0.35)), to(rgba(245, 245, 245, 0))), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#777), to(#ababab));
+	background-color: #adadad;
+	background-color: #000000;
+	-webkit-border-radius: 0.6em;   
+*/
+
+}
+
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+li {
+    background-color: #d5d5d5;
+    -webkit-border-radius: 0.75em;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d9d9d9), to(#ababab));
+    -webkit-box-shadow: 0 0.15em 0.17em rgba(0, 0, 0, 0.5);
+    display: block;
+    padding: 0.4em;
+    padding-bottom: 0.6em;
+
+    margin: 0;
+    display: block;
+    padding-left: 30px; //1em;
+    line-height: 2.15em;
+    padding-top: 0.15em;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+}
+
+li a {
+
+}
+
+li a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 2px;
+
+}
+
+table, td, th {
+
+}
+
+th {
+    background-color: #d5d5d5;
+    color: black; //#7E7E7E
+    -webkit-border-radius: 0.75em;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d9d9d9), to(#ababab));
+    -webkit-box-shadow: 0 0.15em 0.17em rgba(0, 0, 0, 0.5);
+}
+
+div#menu {
+    padding-left: 30px; //1em;
+    padding-bottom: 0.5em; //1em;
+}
+
+div#menu a, div#navigation a {
+    color: #739CCE;
+    text-decoration: none;
+    padding: 2px;
+}
+
+div#menu a:hover, div#navigation a:hover {
+    color: 6F918A;
+}
+
+div#question li {
+    background-color: #FFFFFF;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#ffffff));
+    color: #black;
+
+//    padding: 0.2em;
+    padding-top: 0.05em;
+    padding-bottom: 0.05em;
+}
+
+div#question input {
+    padding-bottom: 0.5em;
+}
+
+div#navigation ul {
+//    background-color: #d5d5d5;
+//    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#ffffff));
+    padding-left: 30px;
+    padding-top: 0em;
+    padding-bottom: 0em;
+}
+
+input[type="text"] { 
+//    width: 300px; 
+//    font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
+//    background-color: #333333; 
+    color: black; //#ffffff
+} 
+
+input[type="button"] {
+    // The fancy mac color definitions
+	background-color: #d5d5d5;
+    -webkit-border-radius: 0.75em;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#c9c9c9), to(#8c8c8c));
+
+/*
+    background-color: #d5d5d5;
+    -webkit-border-radius: 0.75em;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d9d9d9), to(#ababab));
+    -webkit-box-shadow: 0 0.15em 0.17em rgba(0, 0, 0, 0.5);
+*/
+
+//    display: block;
+    width: 70px; 
+    cursor: hand;
+    padding: 0.4em;
+    padding-left: 1em;
+    padding-bottom: 0.6em;
+/*
+    padding: 0px;
+    font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
+    foreground-color: #7E7E7E;
+    background-color: #D3D3D3;
+    border: 1px solid;
+*/
+} 
