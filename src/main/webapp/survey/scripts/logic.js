@@ -50,7 +50,7 @@ var nextQuestion = function () {
         id_question += 1;
         current_question = current_survey.questions[id_question];
     } else {
-        $("#navigation").append("<input type='button' id='xxx' name='xxx' value='提交' onclick='xxx()'/>");
+        $("#navigation").append("<button class='btn btn-default' type='submit' id='submit' name='submit'  onclick='xxx()' >提交</button>");
         $("#next").hide();
     }
     paintQuestion();
