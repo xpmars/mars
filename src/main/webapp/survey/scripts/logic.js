@@ -45,10 +45,13 @@ var previousQuestion = function () {
 };
 
 var nextQuestion = function () {
-    if (id_question < current_survey.questions.length - 2) {
+    if (id_question < current_survey.questions.length - 1) {
 //	$("#question").fadeOut(); //"slow"
         id_question += 1;
         current_question = current_survey.questions[id_question];
+    } else {
+        $("#navigation").append("<input type='button' id='xxx' name='xxx' value='提交' onclick='xxx()'/>");
+        $("#next").hide();
     }
     paintQuestion();
     //we persist the data
@@ -64,7 +67,7 @@ var paintQuestion = function () {
 //	$("ul").fadeOut();
         $("ul").remove();
         // input text
-        var html_answer = '<input type="text" id="answer" name="answer"></input>';
+        var html_answer = '<input type="text" id="answer" name="answer">';
         // radio
         if (current_question.type === "2") {
             html_answer = "";
@@ -84,13 +87,13 @@ var paintQuestion = function () {
 
         // fecha
         if (current_question.type === "4") {
-            html_answer = '<input type="text" class="date_input" id="answer" name="answer"></input>';
+            html_answer = '<input type="text" class="date_input" id="answer" name="answer">';
         }
 
         $("#question").append(function (index, html) {
-            var num_questions = current_survey.questions.length - 1;
+            var num_questions = current_survey.questions.length;
             var html = "<ul>" +
-                "<li><b>Survey # </b> " + answers.id_answers + "</li>" +
+               /* "<li><b>Survey # </b> " + answers.id_answers + "</li>" +*/
                 "<li><b>Question # </b>" + current_question.id + " / " + num_questions + "</li>" +
                 "<li><b>" + current_question.question + "</b></li>" +
                 "<li>" + html_answer + "</li></ul>";

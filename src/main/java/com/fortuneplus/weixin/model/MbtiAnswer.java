@@ -23,11 +23,4 @@ public class MbtiAnswer {
         this.answer = answer;
     }
 
-    @Override
-    public java.lang.String toString() {
-        return "MbtiAnswer{" +
-                "id=" + id +
-                ", answer='" + answer + '\'' +
-                '}';
-    }
 }

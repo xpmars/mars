@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Properties;
 
 /**
  * Created by xiaopang on 2015/9/24.
@@ -24,6 +25,15 @@ import java.util.regex.Pattern;
 @Controller
 @RequestMapping(value = "/test", method = RequestMethod.POST)
 public class TestController {
+    private static Properties prop;
+    static {
+        prop = new Properties();
+        try {
+            prop.load(new InputStreamReader(TestController.class.getClassLoader().getResourceAsStream("mbti.properties"), "UTF-8"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @RequestMapping(value = "/mbti", method = RequestMethod.POST)
     @ResponseBody
@@ -46,31 +56,34 @@ public class TestController {
         for (Object aJsonArray : jsonArray) {
             JSONObject jobj = (JSONObject) aJsonArray;
             MbtiAnswer mbtiAnswer = (MbtiAnswer) JSONObject.toBean(jobj, MbtiAnswer.class);
-//            System.out.println(mbtiAnswer.toString());
             countMbti(mbtiAnswer, mbtiCountMap);
         }
 
-        System.out.println(mbtiCountMap);
+        String arg_1 = mbtiCountMap.get("E") > mbtiCountMap.get("I") ? "E" : "I";
+        String arg_2 = mbtiCountMap.get("S") > mbtiCountMap.get("N") ? "S" : "N";
+        String arg_3 = mbtiCountMap.get("T") > mbtiCountMap.get("F") ? "T" : "F";
+        String arg_4 = mbtiCountMap.get("J") > mbtiCountMap.get("P") ? "J" : "P";
+        answer = arg_1 + arg_2 + arg_3 + arg_4;
+        String describe = prop.getProperty(answer).trim();
 
+        System.out.println(answer);
+        System.out.println(describe);
 
         Map<String, Object> map = new HashMap<>();
         map.put("success", "true");
-        map.put("result", answer);
+        map.put("result_answer", answer);
+        map.put("result_describe", describe);
         return map;
     }
 
     private void countMbti(MbtiAnswer mbtiAnswer, Map<String, Integer> mbtiCountMap) {
         String answer = mbtiAnswer.getAnswer();
-        Pattern pattern = Pattern.compile("(?<=\\()(.+?)(?=\\))");
-        Matcher matcher = pattern.matcher(answer);
-        while (matcher.find()) {
-            System.out.println(matcher.group());
-
-            int count = mbtiCountMap.get(matcher.group());
-            mbtiCountMap.put(matcher.group(), count++);
-
-        }
-
+        if (StringUtils.isEmpty(answer))
+            return;
+        String rex="[()]+";
+        String[] str = answer.split(rex);
+        int count = mbtiCountMap.get(str[1]);
+        mbtiCountMap.put(str[1], ++count);
     }
 
     @RequestMapping(value = "/fxpg", method = RequestMethod.POST)
